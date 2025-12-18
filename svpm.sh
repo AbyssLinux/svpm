@@ -5,11 +5,11 @@ VERSION="1.0.0"
 MIRROR_CONF="/etc/xbps.d/00-repository-main.conf"
 RETRIES=3
 
-GREEN='\033[0;32m'
-YELLOW='\033[1;33m'
-RED='\033[0;31m'
-CYAN='\033[0;36m'
-NC='\033[0m'
+GREEN=$(printf '\033[0;32m')
+YELLOW=$(printf '\033[1;33m')
+RED=$(printf '\033[0;31m')
+CYAN=$(printf '\033[0;36m')
+NC=$(printf '\033[0m')
 
 print_color() {
     if [ -t 1 ]; then
@@ -274,35 +274,35 @@ cmd_mirror() {
 
 cmd_help() {
     print_color "$CYAN" "Usage:"
-    printf ' svpm %s<%s>%s %s[args]%s\n' "$YELLOW" "command" "$NC" "$CYAN" "$NC"
+    printf ' svpm %b<%s>%b %b[args]%b\n' "$YELLOW" "command" "$NC" "$CYAN" "$NC"
     echo
     print_color "$GREEN" "Basic Commands:"
     echo
-    printf '  %sinstall <pkg>%s           Install a package\n' "$YELLOW" "$NC"
-    printf '  %sremove <pkg>%s            Remove a package\n' "$YELLOW" "$NC"
-    printf '  %supgrade [--clean]%s       Upgrade system (optionally clean orphans)\n' "$YELLOW" "$NC"
-    printf '  %supdate%s                  Sync repositories\n' "$YELLOW" "$NC"
+    printf '  %binstall <pkg>%b           Install a package\n' "$YELLOW" "$NC"
+    printf '  %bremove <pkg>%b            Remove a package\n' "$YELLOW" "$NC"
+    printf '  %bupgrade [--clean]%b       Upgrade system (optionally clean orphans)\n' "$YELLOW" "$NC"
+    printf '  %bupdate%b                  Sync repositories\n' "$YELLOW" "$NC"
     echo
     print_color "$GREEN" "Query Commands:"
     echo
-    printf '  %ssearch <pattern>%s        Search available packages\n' "$YELLOW" "$NC"
-    printf '  %ssmart-search <pattern>%s  Search installed and available packages\n' "$YELLOW" "$NC"
-    printf '  %slist%s                    List installed packages\n' "$YELLOW" "$NC"
-    printf '  %sinfo <pkg>%s              Show package info\n' "$YELLOW" "$NC"
-    printf '  %sfiles <pkg>%s             Show files installed by package\n' "$YELLOW" "$NC"
-    printf '  %sowns <file>%s             Find what package owns a file\n' "$YELLOW" "$NC"
-    printf '  %srdeps <pkg>%s             Show reverse dependencies\n' "$YELLOW" "$NC"
-    printf '  %sheld%s                    List held packages\n' "$YELLOW" "$NC"
-    printf '  %slist-files%s              List files for all installed packages\n' "$YELLOW" "$NC"
+    printf '  %bsearch <pattern>%b        Search available packages\n' "$YELLOW" "$NC"
+    printf '  %bsmart-search <pattern>%b  Search installed and available packages\n' "$YELLOW" "$NC"
+    printf '  %blist%b                    List installed packages\n' "$YELLOW" "$NC"
+    printf '  %binfo <pkg>%b              Show package info\n' "$YELLOW" "$NC"
+    printf '  %bfiles <pkg>%b             Show files installed by package\n' "$YELLOW" "$NC"
+    printf '  %bowns <file>%b             Find what package owns a file\n' "$YELLOW" "$NC"
+    printf '  %brdeps <pkg>%b             Show reverse dependencies\n' "$YELLOW" "$NC"
+    printf '  %bheld%b                    List held packages\n' "$YELLOW" "$NC"
+    printf '  %blist-files%b              List files for all installed packages\n' "$YELLOW" "$NC"
     echo
     print_color "$GREEN" "System:"
     echo
-    printf '  %sreconfigure <pkg>%s       Re-run postinstall for package\n' "$YELLOW" "$NC"
-    printf '  %sreconfigure-all%s         Reconfigure all packages\n' "$YELLOW" "$NC"
-    printf '  %spurge <pkg>%s             Remove package and reverse deps\n' "$YELLOW" "$NC"
-    printf '  %smirror {set|show|list}%s  Manage repo mirrors\n' "$YELLOW" "$NC"
-    printf '  %sstatus%s                  Check Void repo connection\n' "$YELLOW" "$NC"
-    printf '  %scleanup%s                 Remove orphaned packages\n' "$YELLOW" "$NC"
+    printf '  %breconfigure <pkg>%b       Re-run postinstall for package\n' "$YELLOW" "$NC"
+    printf '  %breconfigure-all%b         Reconfigure all packages\n' "$YELLOW" "$NC"
+    printf '  %bpurge <pkg>%b             Remove package and reverse deps\n' "$YELLOW" "$NC"
+    printf '  %bmirror {set|show|list}%b  Manage repo mirrors\n' "$YELLOW" "$NC"
+    printf '  %bstatus%b                  Check Void repo connection\n' "$YELLOW" "$NC"
+    printf '  %bcleanup%b                 Remove orphaned packages\n' "$YELLOW" "$NC"
 }
 
 main() {
